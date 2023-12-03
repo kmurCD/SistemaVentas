@@ -1,0 +1,21 @@
+
+<form [formGroup]="personaForm" (ngSubmit)="guardar()">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre">
+  </div>
+  <div class="mb-3">
+    <label for="otroCampo" class="form-label">Otro Campo</label>
+    <input type="text" class="form-control" id="otroCampo" formControlName="otroCampo" placeholder="Otro Campo">
+  </div>
+
+  <!-- Agrega más campos si es necesario -->
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+
+
+
+
+
+<router-outlet></router-outlet>
