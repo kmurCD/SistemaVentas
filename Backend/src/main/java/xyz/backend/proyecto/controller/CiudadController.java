@@ -1,4 +1,4 @@
-package xyz.backend.proyecto.rest;
+package xyz.backend.proyecto.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/ciudad/")
-public class CiudadREST {
+public class CiudadController {
     @Autowired
     private CiudadService ciudadService;
     @GetMapping("{id}")

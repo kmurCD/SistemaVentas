@@ -1,4 +1,4 @@
-package xyz.backend.proyecto.rest;
+package xyz.backend.proyecto.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,9 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/pais/")
-public class PaisREST {
+public class PaisController {
     @Autowired
     private PaisService paisService ;
+
     @GetMapping
     private ResponseEntity<List<Pais>> getAllPais(){
         return ResponseEntity.ok(paisService.findAll());

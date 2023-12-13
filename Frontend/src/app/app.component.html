@@ -1,21 +1,63 @@
-
 <form [formGroup]="personaForm" (ngSubmit)="guardar()">
   <div class="mb-3">
     <label for="nombre" class="form-label">Nombre</label>
-    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre">
+    <input type="text" class="form-control" id="nombre" formControlName="nombre" placeholder="ingresa un nombre" >
   </div>
   <div class="mb-3">
-    <label for="otroCampo" class="form-label">Otro Campo</label>
-    <input type="text" class="form-control" id="otroCampo" formControlName="otroCampo" placeholder="Otro Campo">
+    <label for="apellido" class="form-label">Apellido</label>
+    <input type="text" class="form-control" id="apellido" formControlName="apellido" placeholder="ingresa apellidos">
+  </div>
+  <div class="mb-3">
+    <label for="Edad" class="form-label">Edad</label>
+    <input type="text" class="form-control" id="Edad" formControlName="edad" placeholder="ingresa una edad">
   </div>
 
-  <!-- Agrega más campos si es necesario -->
 
-  <button type="submit" class="btn btn-primary">Guardar</button>
+  <div class="mb-3">
+    <label for="pais" class="form-label">Pais</label>
+    <select class="form-select" aria-label="Default select example" formControlName="pais" id="pais">
+      <!-- Corrección: *ngFor en lugar de *ngfor -->
+      <option *ngFor="let item of pais" [ngValue]="item">{{ item.nombre }}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="ciudad" class="form-label">Ciudad</label>
+    <select class="form-select" aria-label="Default select example" formControlName="ciudad" id="ciudad" >
+      <option *ngFor="let item of ciudad" [ngValue]="item">{{ item.nombre }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-secondary" [disabled]="personaForm.invalid">Guardar</button>
 </form>
 
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Edad</th>
+        <th>Pais</th>
+        <th>Ciudad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of personas">
+        <td>{{ item?.id }}</td>
+        <td>{{ item?.nombre }}</td>
+        <td>{{ item?.apellido }}</td>
+        <td>{{ item?.edad }}</td>
+        <td>{{ item?.pais?.nombre }}</td>
+        <td>{{ item?.ciudad?.nombre }}</td>
+        <td>
+          <button type="button" class="btn btn-sm btn-success" (click)="getPersona(item)">Editar</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)="eliminar(item)">Eliminar</button>
 
-
-
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <router-outlet></router-outlet>

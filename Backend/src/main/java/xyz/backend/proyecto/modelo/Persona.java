@@ -3,8 +3,6 @@ package xyz.backend.proyecto.modelo;
 import jakarta.persistence.*;
 import lombok.Data;
 
-
-
 @Entity
 @Data
 @Table(name = "persona")
